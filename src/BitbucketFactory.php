@@ -55,13 +55,7 @@ class BitbucketFactory {
      * @return \Bitbucket\API\Api
      */
     protected function getClient(array $config) {
-        $factory = new AuthenticatorFactory();
-        /**
-         * @var $auth ApplicationAuthenticator
-         */
-        $auth = $factory->make("application");
-        $auth->with(new Api());
-        $client = $auth->authenticate($config);
+        return $this->auth->make("application")->with(new Api())->authenticate($config);
     }
 
 }
