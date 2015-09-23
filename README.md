@@ -16,10 +16,10 @@ composer require "jketelaar/bitbucket"
 
 You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
 
-Once Laravel GitHub is installed, you need to register the service provider. Open up `config/app.php` and add the following to the `providers` key.
+Once Laravel Bitbucket is installed, you need to register the service provider. Open up `config/app.php` and add the following to the `providers` key.
 
 * `'JKetelaar\Bitbucket\BitbucketServiceProvider'`
 
-You can register the GitHub facade in the `aliases` key of your `config/app.php` file if you like.
+You can register the Bitbucket facade in the `aliases` key of your `config/app.php` file if you like.
 
 * `'Bitbucket' => 'JKetelaar\Bitbucket\Facades\Bitbucket'`
