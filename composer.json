@@ -14,5 +14,10 @@
         "gentle/bitbucket-api": "0.7.*",
         "league/oauth2-client": "~1.0",
         "stevenmaguire/oauth2-bitbucket": "0.1.*"
-    }
+    },
+    "autoload": {
+        "psr-4": {
+            "JKetelaar\\Bitbucket\\": "src/"
+        }
+    },
 }
