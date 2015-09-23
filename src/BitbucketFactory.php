@@ -4,6 +4,7 @@
  */
 namespace JKetelaar\Bitbucket;
 
+use Bitbucket\API\Api;
 use JKetelaar\Bitbucket\Authenticators\ApplicationAuthenticator;
 use JKetelaar\Bitbucket\Authenticators\AuthenticatorFactory;
 
@@ -24,7 +25,7 @@ class BitbucketFactory {
     protected $path;
 
     /**
-     * Create a new github factory instance.
+     * Create a new bitbucket factory instance.
      *
      * @param AuthenticatorFactory $auth
      * @param string $path
@@ -51,7 +52,7 @@ class BitbucketFactory {
      *
      * @param string[] $config
      *
-     * @return \Github\Client
+     * @return \Bitbucket\API\Api
      */
     protected function getClient(array $config) {
         $factory = new AuthenticatorFactory();
@@ -59,8 +60,8 @@ class BitbucketFactory {
          * @var $auth ApplicationAuthenticator
          */
         $auth = $factory->make("application");
+        $auth->with(new Api());
         $client = $auth->authenticate($config);
-        $auth->with($client);
     }
 
 }

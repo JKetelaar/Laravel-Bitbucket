@@ -32,7 +32,7 @@ class BitbucketManager extends AbstractManager {
      *
      * @param array $config
      *
-     * @return \Github\Client
+     * @return \Bitbucket\API\Api
      */
     protected function createConnection(array $config) {
         return $this->factory->make($config);

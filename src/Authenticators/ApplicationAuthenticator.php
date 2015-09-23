@@ -4,6 +4,7 @@
  */
 namespace JKetelaar\Bitbucket\Authenticators;
 
+use Bitbucket\API\Api;
 use Bitbucket\API\Http\Listener\OAuth2Listener;
 use Bitbucket\API\Repositories;
 use InvalidArgumentException;
@@ -46,7 +47,6 @@ class ApplicationAuthenticator extends AbstractAuthenticator implements Authenti
             $token = $provider->getAccessToken('authorization_code', [
                 'code' => $_GET['code']
             ]);
-            $this->client = new Repositories();
             $this->client->getClient()->addListener(
                 new OAuth2Listener(
                     array('access_token' => $token->getToken())

@@ -6,7 +6,7 @@ namespace JKetelaar\Bitbucket\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class GitHub extends Facade {
+class Bitbucket extends Facade {
 
     /**
      * Get the registered name of the component.

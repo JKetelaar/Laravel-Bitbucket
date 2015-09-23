@@ -9,7 +9,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 use JKetelaar\Bitbucket\Authenticators\AuthenticatorFactory;
 
-class GitHubServiceProvider extends ServiceProvider {
+class BitbucketServiceProvider extends ServiceProvider {
     /**
      * Boot the service provider.
      *
@@ -39,7 +39,7 @@ class GitHubServiceProvider extends ServiceProvider {
      */
     public function register() {
         $this->registerAuthFactory($this->app);
-        $this->registerGitHubFactory($this->app);
+        $this->registerBitbucketFactory($this->app);
         $this->registerManager($this->app);
         $this->registerBindings($this->app);
     }
@@ -59,7 +59,7 @@ class GitHubServiceProvider extends ServiceProvider {
     }
 
     /**
-     * Register the github factory class.
+     * Register the bitbucket factory class.
      *
      * @param \Illuminate\Contracts\Foundation\Application $app
      *
