@@ -1,0 +1,18 @@
+{
+    "name": "JKetelaar/Bitbucket",
+    "description": "Bitbucket is a Bitbucket bridge for Laravel 5 based on the Github bridge from GrahamCampbell",
+    "keywords": ["laravel", "framework", "bitbucket", "php-bitbucket-api", "PHP Bitbucket API", "bitbucket bridge", "bridge", "Bitbucket", "Laravel Bitbucket", "Laravel-Bitbucket", "Jeroen Ketelaar", "JKetelaar"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "JKetelaar",
+            "email": "jeroen@ketelaar.me"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "gentle/bitbucket-api": "0.7.*",
+        "league/oauth2-client": "~1.0",
+        "stevenmaguire/oauth2-bitbucket": "0.1.*"
+    }
+}
