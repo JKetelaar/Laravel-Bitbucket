@@ -1,6 +1,6 @@
 <?php
-
 namespace JKetelaar\Bitbucket;
+
 use GrahamCampbell\Manager\AbstractManager;
 use Illuminate\Contracts\Config\Repository;
 
@@ -22,8 +22,7 @@ class BitbucketManager extends AbstractManager {
      * @param \Illuminate\Contracts\Config\Repository $config
      * @param \JKetelaar\Bitbucket\BitbucketFactory $factory
      */
-    public function __construct(Repository $config, BitbucketFactory $factory)
-    {
+    public function __construct(Repository $config, BitbucketFactory $factory) {
         parent::__construct($config);
         $this->factory = $factory;
     }
@@ -35,8 +34,7 @@ class BitbucketManager extends AbstractManager {
      *
      * @return \Github\Client
      */
-    protected function createConnection(array $config)
-    {
+    protected function createConnection(array $config) {
         return $this->factory->make($config);
     }
 
@@ -45,8 +43,7 @@ class BitbucketManager extends AbstractManager {
      *
      * @return string
      */
-    protected function getConfigName()
-    {
+    protected function getConfigName() {
         return 'bitbucket';
     }
 
@@ -55,8 +52,7 @@ class BitbucketManager extends AbstractManager {
      *
      * @return \JKetelaar\Bitbucket\BitbucketFactory
      */
-    public function getFactory()
-    {
+    public function getFactory() {
         return $this->factory;
     }
 }

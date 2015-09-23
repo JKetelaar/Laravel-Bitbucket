@@ -1,9 +1,7 @@
 <?php
-
 /**
  * @author JKetelaar
  */
-
 namespace JKetelaar\Bitbucket;
 
 use JKetelaar\Bitbucket\Authenticators\ApplicationAuthenticator;
@@ -57,13 +55,11 @@ class BitbucketFactory {
      */
     protected function getClient(array $config) {
         $factory = new AuthenticatorFactory();
-
         /**
          * @var $auth ApplicationAuthenticator
          */
         $auth = $factory->make("application");
         $client = $auth->authenticate($config);
-
         $auth->with($client);
     }
 

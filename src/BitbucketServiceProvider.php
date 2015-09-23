@@ -9,15 +9,13 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 use JKetelaar\Bitbucket\Authenticators\AuthenticatorFactory;
 
-class GitHubServiceProvider extends ServiceProvider
-{
+class GitHubServiceProvider extends ServiceProvider {
     /**
      * Boot the service provider.
      *
      * @return void
      */
-    public function boot()
-    {
+    public function boot() {
         $this->setupConfig();
     }
 
@@ -26,14 +24,11 @@ class GitHubServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function setupConfig()
-    {
-        $source = realpath(__DIR__.'/../config/bitbucket.php');
-
+    protected function setupConfig() {
+        $source = realpath(__DIR__ . '/../config/bitbucket.php');
         if (class_exists('Illuminate\Foundation\Application', false)) {
             $this->publishes([$source => config_path('bitbucket.php')]);
         }
-
         $this->mergeConfigFrom($source, 'bitbucket');
     }
 
@@ -42,8 +37,7 @@ class GitHubServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
-    {
+    public function register() {
         $this->registerAuthFactory($this->app);
         $this->registerGitHubFactory($this->app);
         $this->registerManager($this->app);
@@ -57,12 +51,10 @@ class GitHubServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerAuthFactory(Application $app)
-    {
+    protected function registerAuthFactory(Application $app) {
         $app->singleton('bitbucket.authfactory', function () {
             return new AuthenticatorFactory();
         });
-
         $app->alias('bitbucket.authfactory', AuthenticatorFactory::class);
     }
 
@@ -73,15 +65,12 @@ class GitHubServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerBitbucketFactory(Application $app)
-    {
+    protected function registerBitbucketFactory(Application $app) {
         $app->singleton('bitbucket.factory', function ($app) {
             $auth = $app['bitbucket.authfactory'];
-            $path = $app['path.storage'].'/bitbucket';
-
+            $path = $app['path.storage'] . '/bitbucket';
             return new BitbucketFactory($auth, $path);
         });
-
         $app->alias('bitbucket.factory', BitbucketFactory::class);
     }
 
@@ -92,15 +81,12 @@ class GitHubServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerManager(Application $app)
-    {
+    protected function registerManager(Application $app) {
         $app->singleton('bitbucket', function ($app) {
             $config = $app['config'];
             $factory = $app['bitbucket.factory'];
-
             return new BitbucketManager($config, $factory);
         });
-
         $app->alias('bitbucket', BitbucketManager::class);
     }
 
@@ -111,14 +97,11 @@ class GitHubServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerBindings(Application $app)
-    {
+    protected function registerBindings(Application $app) {
         $app->bind('bitbucket.connection', function ($app) {
             $manager = $app['bitbucket'];
-
             return $manager->connection();
         });
-
         $app->alias('bitbucket.connection', Api::class);
     }
 
@@ -127,8 +110,7 @@ class GitHubServiceProvider extends ServiceProvider
      *
      * @return string[]
      */
-    public function provides()
-    {
+    public function provides() {
         return [
             'bitbucket.authfactory',
             'bitbucket.factory',

@@ -2,9 +2,7 @@
 /**
  * @author JKetelaar
  */
-
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Default Connection Name
@@ -15,9 +13,7 @@ return [
     | connections at once using the manager class.
     |
     */
-
-    'default' => 'main',
-
+    'default'     => 'main',
     /*
     |--------------------------------------------------------------------------
     | Bitbucket Connections
@@ -29,26 +25,20 @@ return [
     | "application", "password", and "token".
     |
     */
-
     'connections' => [
-
-        'main' => [
-            'token'   => 'your-token',
-            'method'  => 'token'
+        'main'        => [
+            'token'  => 'your-token',
+            'method' => 'token'
         ],
-
         'alternative' => [
             'clientId'     => 'your-client-id',
             'clientSecret' => 'your-client-secret',
             'method'       => 'application'
         ],
-
-        'other' => [
+        'other'       => [
             'username' => 'your-username',
             'password' => 'your-password',
             'method'   => 'password'
         ],
-
     ],
-
 ];
