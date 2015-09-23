@@ -13,7 +13,7 @@
         "php": ">=5.5.9",
         "gentle/bitbucket-api": "0.7.*",
         "league/oauth2-client": "~1.0",
-        "stevenmaguire/oauth2-bitbucket": "0.1.*"
+        "stevenmaguire/oauth2-bitbucket": "~1.0@dev"
     },
     "autoload": {
         "psr-4": {
