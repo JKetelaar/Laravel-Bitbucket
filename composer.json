@@ -1,5 +1,5 @@
 {
-    "name": "JKetelaar/Bitbucket",
+    "name": "jketeaar/bitbucket",
     "description": "Bitbucket is a Bitbucket bridge for Laravel 5 based on the Github bridge from GrahamCampbell",
     "keywords": ["laravel", "framework", "bitbucket", "php-bitbucket-api", "PHP Bitbucket API", "bitbucket bridge", "bridge", "Bitbucket", "Laravel Bitbucket", "Laravel-Bitbucket", "Jeroen Ketelaar", "JKetelaar"],
     "license": "MIT",
