@@ -19,5 +19,7 @@
         "psr-4": {
             "JKetelaar\\Bitbucket\\": "src/"
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
