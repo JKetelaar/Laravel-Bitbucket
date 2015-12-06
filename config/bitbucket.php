@@ -27,8 +27,8 @@ return [
     */
     'connections' => [
         'main'        => [
-            'token'  => 'your-token',
-            'method' => 'token'
+            'token'  => env('BB_AUTH_TOKEN', 'your-token'),
+            'method' => env('BB_AUTH_METHOD', 'token')
         ],
         'alternative' => [
             'clientId'     => 'your-client-id',
